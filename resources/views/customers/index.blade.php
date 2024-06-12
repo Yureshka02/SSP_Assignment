@@ -1,3 +1,4 @@
+{{--making the full bg gray--}}
 <div class="bg-gray-800 h-screen">
 <x-app-layout>
     <div class="bg-gray-800 py-6 text-center">
