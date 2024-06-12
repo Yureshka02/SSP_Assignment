@@ -1,3 +1,4 @@
+<div class="bg-gray-800 h-screen">
 <x-app-layout>
     <div class="bg-gray-800 py-6 text-center">
         <h2 class="font-semibold text-2xl text-gray-100 leading-tight">
@@ -55,3 +56,4 @@
         </div>
     </div>
 </x-app-layout>
+</div>
