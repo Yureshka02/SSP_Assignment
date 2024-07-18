@@ -1,3 +1,4 @@
+{{--dark mode --}}
 <x-app-layout class="bg-gray-900">
     <div class="bg-gray-800 py-6 text-center">
         <h2 class="font-semibold text-2xl text-gray-100 leading-tight">
