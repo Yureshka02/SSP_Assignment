@@ -159,6 +159,7 @@
                             </x-slot>
                         </x-dropdown>
                     </div>
+                    @can('seeAdminFeatures')
                     <div class="ms-3 relative">
                         <x-dropdown align="right" width="48">
                             <!-- Dropdown Trigger -->
@@ -184,15 +185,15 @@
                                     {{ __('Manage Users') }}
                                 </div>
 
-                                <x-dropdown-link href="{{ route('admin.user.administrators') }}">
+                                <x-dropdown-link href="{{ route('admin.user.administrators.index') }}">
                                     {{ __('Administrators') }}
                                 </x-dropdown-link>
 
-                                <x-dropdown-link href="{{ route('admin.user.customers') }}">
+                                <x-dropdown-link href="{{ route('admin.user.customers.index') }}">
                                     {{ __('Customers') }}
                                 </x-dropdown-link>
 
-                                <x-dropdown-link href="{{ route('admin.user.suppliers') }}">
+                                <x-dropdown-link href="{{ route('admin.user.suppliers.index') }}">
                                     {{ __('Suppliers') }}
                                 </x-dropdown-link>
 
@@ -211,6 +212,7 @@
                             </x-slot>
                         </x-dropdown>
                     </div>
+                    @endcan
                 </div>
             @endauth
         </div>
