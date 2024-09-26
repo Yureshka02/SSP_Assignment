@@ -17,5 +17,6 @@ class HomeController extends Controller
         session()->flash('flash.bannerStyle', 'success');
 
         return view('Home');
+
     }
 }

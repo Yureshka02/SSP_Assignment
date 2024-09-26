@@ -13,11 +13,28 @@ Route::get('/',HomeController::class)
     ->name('home');
 
 
-Route::middleware([
-    'role:Admin,Customer',
-])->get('/dev', function () {
-    dd(auth()->user()->role == App\Enums\Role::Customer);
+//Route::middleware([
+//    'role:Admin,Customer',
+//])->get('/dev', function () {
+//    dd(auth()->user()->role == App\Enums\Role::Customer);
+//});
+
+Route::middleware(['role:Admin,Customer'])->get('/dev', function () {
+    $user = auth()->user();
+
+    if ($user->role == App\Enums\Role::Admin) {
+        return redirect('/dashboard');
+    } elseif ($user->role == App\Enums\Role::Customer) {
+        return redirect('/');
+    }
+
+    return abort(403, 'Unauthorized'); // Optional: Handle other roles if necessary
 });
+
+
+
+
+
 
 Route::get('/',HomeController::class)
     ->name('home');
