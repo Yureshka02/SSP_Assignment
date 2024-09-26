@@ -14,7 +14,7 @@ Route::get('/',HomeController::class)
 
 
 Route::middleware([
-    'role'
+    'role:Admin,Customer',
 ])->get('/dev', function () {
     dd(auth()->user()->role == App\Enums\Role::Customer);
 });

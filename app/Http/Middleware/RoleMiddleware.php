@@ -7,10 +7,30 @@ use Illuminate\Http\Request;
 
 class RoleMiddleware
 {
-    public function handle(Request $request, Closure $next)
+    public function handle(
+        Request $request,
+        Closure $next,
+        string ...$role
+    )
     {
 
-        dd($request);
-        return $next($request);
-    }
+        //loop through the role list and check if there is a match
+        foreach ($role as $r) {
+
+
+
+            if (auth()->user()->role->name == $r) {
+                return $next($request);
+            }
+        }
+
+
+
+
+
+        abort(403, "PIXXUDA");
+        }
+
+
+
 }
