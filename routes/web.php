@@ -13,7 +13,14 @@ Route::get('/',HomeController::class)
     ->name('home');
 
 
+Route::middleware([
+    'role'
+])->get('/dev', function () {
+    dd(auth()->user()->role == App\Enums\Role::Customer);
+});
 
+Route::get('/',HomeController::class)
+    ->name('home');
 
 
 Route::get('/reservations', function () {
