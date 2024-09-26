@@ -61,16 +61,15 @@
                                                     <span class="sr-only">, {{ $user->name }}</span>
                                                 </a>
 
-                                                <form method="post"
-                                                      action="{{ route('admin.user.customers.destroy', $user->id) }}">
+                                                <form method="POST" action="{{ route('admin.user.customers.destroy', $user->id) }}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit"
-                                                            class="text-indigo-600 hover:text-indigo-900 inline-block">
+                                                    <button type="submit" class="text-indigo-600 hover:text-indigo-900 inline-block">
                                                         Delete
                                                         <span class="sr-only">, {{ $user->name }}</span>
                                                     </button>
                                                 </form>
+
 
                                             </td>
                                         </tr>
