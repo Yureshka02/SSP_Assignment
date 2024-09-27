@@ -53,7 +53,7 @@
                 @foreach($products as $product)
                     <div class="group relative bg-white p-2 rounded-xl" x-show="activeCategory === {{ $product->category->id }}">
                         <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-{{--                            <img src="{{ $product->getFirstMediaUrl('featured') }}" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full">--}}
+ <img src="{{ $product->getFirstMediaUrl('featured') }}" alt="featured image" class="h-full w-full object-cover object-center lg:h-full lg:w-full">
                         </div>
                         <div class="mt-4 flex justify-between">
                             <div>
