@@ -179,6 +179,7 @@
                                     </div>
                                 </li>
                             @endforeach
+
                         </ul>
                         <dl class="space-y-6 border-t border-gray-200 px-4 py-6 sm:px-6">
                             <div class="flex items-center justify-between">

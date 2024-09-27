@@ -30,6 +30,7 @@ class CartController extends Controller
         return view('checkout', [
             'cart' => $cart,
             'user' => auth()->user(),
+
         ]);
     }
 
