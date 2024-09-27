@@ -18,9 +18,7 @@
 
                     @auth
                         <!-- Products link -->
-                        <x-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products.*')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('products.*') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
-                            {{ __('Products') }}
-                        </x-nav-link>
+
                         <!-- Bookings link -->
                         <x-nav-link href="{{ route('Bookings.index') }}" :active="request()->routeIs('bookings.*')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('bookings.*') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
                             {{ __('Bookings') }}
@@ -235,10 +233,7 @@
                 {{ __('Home') }}
             </x-responsive-nav-link>
 
-            <!-- Products link -->
-            <x-responsive-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products.*')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('products.*') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
-                {{ __('Products') }}
-            </x-responsive-nav-link>
+
 
             <!-- Bookings link -->
             <x-responsive-nav-link href="{{ route('Bookings.index') }}" :active="request()->routeIs('bookings.*')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('bookings.*') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">

@@ -5,12 +5,14 @@ use App\Http\Controllers\BookingsController;
 use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\HomeeController;
 use App\Http\Controllers\SuppliersController;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/admin/users.php';
 
+Route::get('/products-home', HomeeController::class)
+    ->name('products-home');
 
 
 
