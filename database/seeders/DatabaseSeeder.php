@@ -26,6 +26,16 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@admin.com',
             'role'=> 1
         ]);
+        $this->call([
+            CategorySeeder::class,
+//            ProductSeeder::class,
+//            ServiceSeeder::class,
+//            FacilitySeeder::class,
+//            SupplierSeeder::class,
+//            CustomerSeeder::class,
+//            BookingSeeder::class,
+        ]);
+
         User::factory(100)->create();
 
         Products::factory(100)->create();
