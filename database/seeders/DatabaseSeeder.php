@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call([
             CategorySeeder::class,
+            ProductSeeder::class,
 //            ProductSeeder::class,
 //            ServiceSeeder::class,
 //            FacilitySeeder::class,
@@ -38,7 +39,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory(100)->create();
 
-        Products::factory(100)->create();
+
         Bookings::factory(50)->create();
         Facilities::factory(50)->create();
         Suppliers::factory(50)->create();

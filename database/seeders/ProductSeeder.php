@@ -127,7 +127,7 @@ class ProductSeeder extends Seeder
                 'status' => true
             ]);
 
-            $product_object->addMediaFromUrl($product['image'])->toMediaCollection('featured');
+            //$product_object->addMediaFromUrl($product['image'])->toMediaCollection('featured');
         }
     }
 }

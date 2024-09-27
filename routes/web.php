@@ -51,9 +51,6 @@ Route::get('/reservations', function () {
 })  ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-//products route
-Route::resource('products',ProductsController::class)
-    ->middleware(['auth', 'verified']);
 
 //bookings route
 Route::resource('Bookings',BookingsController::class)
