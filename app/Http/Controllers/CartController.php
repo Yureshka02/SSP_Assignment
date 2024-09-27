@@ -19,12 +19,12 @@ class CartController extends Controller
 
         // if not cart is found, send the user back to the home page
         if (!$cart) {
-            return redirect()->route('home');
+            return redirect()->route('products-home');
         }
 
         // if the cart is found but has no products, send the user back to the home page
         if ($cart->products->count() == 0) {
-            return redirect()->route('home');
+            return redirect()->route('products-home');
         }
 
         return view('checkout', [

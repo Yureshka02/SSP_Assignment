@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeeController;
 use App\Http\Controllers\SuppliersController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 
 require __DIR__.'/admin/users.php';
 
