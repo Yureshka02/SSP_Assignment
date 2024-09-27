@@ -13,7 +13,10 @@ return new class extends Migration {
             $table->string('name');
             $table->longText('description')->nullable();
             $table->double('price',10,2);
-            $table->foreignIdFor(Category::class)->nullable();
+            $table->foreignId('category_id')
+                ->nullable()
+                ->constrained('categories')
+                ->onDelete('cascade');
             $table->integer('sort_order')->default(0);
             $table->boolean('status')->default(true);
             $table->softDeletes();
