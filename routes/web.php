@@ -11,10 +11,32 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/admin/users.php';
 
-Route::get('/products-home', HomeeController::class)
-//    ->middleware(['auth', 'verified'])
-    ->name('products-home');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
 
+    Route::get('/products-home', [HomeeController::class, '__invoke'])->name('products-home');
+
+
+Route::get('check-out', [
+    CartController::class,
+    'checkOut'
+])->name('checkout');
+
+Route::post('check-out', [
+    CartController::class,
+    'completeOrder'
+])->name('checkout.complete');
+
+Route::get('thank-you/{order}', [
+    CartController::class,
+    'orderConfirmation'
+])->name('checkout.confirm');
+
+
+});
 
 
 
