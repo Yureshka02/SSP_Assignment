@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/admin/users.php';
 
 Route::get('/products-home', HomeeController::class)
+//    ->middleware(['auth', 'verified'])
     ->name('products-home');
 
 
