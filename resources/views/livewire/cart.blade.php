@@ -45,6 +45,7 @@ $removeProduct = function ($product_id) {
             </a>
         </div>
 
+
         <div x-show="open" class="relative z-10"
              aria-labelledby="slide-over-title" role="dialog"
              aria-modal="true">
