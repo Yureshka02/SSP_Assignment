@@ -17,7 +17,7 @@
                     </x-nav-link>
 
                     @auth
-                        <!-- Products link -->
+                        @can('seeAdminFeatures')
 
                         <!-- Bookings link -->
                         <x-nav-link href="{{ route('Bookings.index') }}" :active="request()->routeIs('bookings.*')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('bookings.*') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
@@ -38,6 +38,7 @@
                         <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('dashboard') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
                             {{ __('Dashboard') }}
                         </x-nav-link>
+                        @endcan
                     @endauth
                 </div>
             </div>
@@ -234,7 +235,7 @@
             </x-responsive-nav-link>
 
 
-
+@can('seeAdminFeatures')
             <!-- Bookings link -->
             <x-responsive-nav-link href="{{ route('Bookings.index') }}" :active="request()->routeIs('bookings.*')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('bookings.*') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
                 {{ __('Bookings') }}
@@ -250,6 +251,7 @@
             <x-responsive-nav-link href="{{ route('customers.index') }}" :active="request()->routeIs('customers.*')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('customers.*') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
                 {{ __('Customers') }}
             </x-responsive-nav-link>
+            @endcan
         </div>
     </div>
 </nav>
