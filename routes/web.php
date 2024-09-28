@@ -8,6 +8,7 @@ use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeeController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SuppliersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
@@ -48,6 +49,11 @@ Route::get('/cache-test',[
 
 Route::get('/logs',[
     LogController::class,
+    'index'
+]);
+
+Route::get('/session',[
+    SessionController::class,
     'index'
 ]);
 
