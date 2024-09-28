@@ -20,5 +20,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+
+        \Event::listen(
+            \App\Events\AdministratorCreatedEvent::class,
+            \App\Listeners\AdminNotificationListener::class
+        );
     }
 }

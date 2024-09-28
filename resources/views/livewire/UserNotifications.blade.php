@@ -38,7 +38,6 @@ $markAsRead = function ($notification_id) {
 
 <div x-data="{
     init(){
-        // Enable pusher logging - don't include this in production
         Pusher.logToConsole = true;
 
         var pusher = new Pusher('50a2e6693f94dde830f7', {
