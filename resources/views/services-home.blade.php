@@ -42,9 +42,7 @@
                                             {{ $category->description }}
                                         </p>
                                     </div>
-                                    <img class="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
-                                         src="https://via.placeholder.com/40"
-                                         alt="">
+
                                 </div>
                             </li>
                         @endforeach
