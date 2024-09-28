@@ -30,6 +30,7 @@ $removeProduct = function ($product_id) {
 
 <div x-data="{ open: @entangle('show_cart') }">
     @if($cart)
+{{--        Cart Icon--}}
         <div class="fixed bottom-3 right-3 bg-white rounded-full shadow p-2">
             <a href="#" class="group -m-2 flex items-center p-2" x-on:click="open = true">
                 <svg class="h-10 flex-shrink-0 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24"
