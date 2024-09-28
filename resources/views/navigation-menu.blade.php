@@ -43,6 +43,7 @@
                 </div>
             </div>
 
+            @guest()
             <!-- Login and Register Buttons -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <div class="ms-3">
@@ -51,6 +52,7 @@
                     <a href="{{ route('register') }}" class="text-xl text-gray-500 hover:text-teal-600">Register</a>
                 </div>
             </div>
+            @endguest
 
             @auth
                 <div class="hidden sm:flex sm:items-center sm:ms-6">
