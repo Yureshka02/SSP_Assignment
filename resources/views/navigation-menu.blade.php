@@ -26,14 +26,7 @@
                         <x-nav-link href="{{ route('facilities.index') }}" :active="request()->routeIs('facilities.*')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('facilities.*') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
                             {{ __('Facilities') }}
                         </x-nav-link>
-                        <!-- Suppliers link -->
-                        <x-nav-link href="{{ route('suppliers.index') }}" :active="request()->routeIs('suppliers.*')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('suppliers.*') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
-                            {{ __('Suppliers') }}
-                        </x-nav-link>
-                        <!-- Customers link -->
-                        <x-nav-link href="{{ route('customers.index') }}" :active="request()->routeIs('customers.*')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('customers.*') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
-                            {{ __('Customers') }}
-                        </x-nav-link>
+
                         <!-- Dashboard link -->
                         <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('dashboard') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
                             {{ __('Dashboard') }}
@@ -192,11 +185,11 @@
                                     {{ __('Administrators') }}
                                 </x-dropdown-link>
 
-                                <x-dropdown-link href="{{ route('admin.user.customers.index') }}">
+                                <x-dropdown-link href="{{ route('customers.index') }}">
                                     {{ __('Customers') }}
                                 </x-dropdown-link>
 
-                                <x-dropdown-link href="{{ route('admin.user.suppliers.index') }}">
+                                <x-dropdown-link href="{{ route('suppliers.index') }}">
                                     {{ __('Suppliers') }}
                                 </x-dropdown-link>
 
@@ -248,13 +241,7 @@
                 {{ __('Facilities') }}
             </x-responsive-nav-link>
             <!-- Suppliers link -->
-            <x-responsive-nav-link href="{{ route('suppliers.index') }}" :active="request()->routeIs('suppliers.*')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('suppliers.*') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
-                {{ __('Suppliers') }}
-            </x-responsive-nav-link>
-            <!-- Customers link -->
-            <x-responsive-nav-link href="{{ route('customers.index') }}" :active="request()->routeIs('customers.*')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('customers.*') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
-                {{ __('Customers') }}
-            </x-responsive-nav-link>
+
             @endcan
         </div>
     </div>
