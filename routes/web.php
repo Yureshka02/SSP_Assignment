@@ -2,10 +2,12 @@
 
 
 use App\Http\Controllers\BookingsController;
+use App\Http\Controllers\CacheController;
 use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeeController;
+use App\Http\Controllers\LogController;
 use App\Http\Controllers\SuppliersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
@@ -38,6 +40,16 @@ Route::get('thank-you/{order}', [
 
 
 });
+
+Route::get('/cache-test',[
+    CacheController::class,
+    'index'
+]);
+
+Route::get('/logs',[
+    LogController::class,
+    'index'
+]);
 
 
 
