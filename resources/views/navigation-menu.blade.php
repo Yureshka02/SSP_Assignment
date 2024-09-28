@@ -106,6 +106,8 @@
                         </div>
                     @endif
 
+                    @livewire('UserNotifications')
+
                     <!-- Settings Dropdown -->
                     <div class="ms-3 relative">
                         <x-dropdown align="right" width="48">

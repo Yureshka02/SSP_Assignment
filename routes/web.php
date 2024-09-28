@@ -8,6 +8,7 @@ use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeeController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SuppliersController;
 use Illuminate\Support\Facades\Route;
@@ -54,6 +55,11 @@ Route::get('/logs',[
 
 Route::get('/session',[
     SessionController::class,
+    'index'
+]);
+
+Route::get('/notification',[
+    NotificationController::class,
     'index'
 ]);
 
