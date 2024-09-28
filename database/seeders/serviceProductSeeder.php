@@ -181,7 +181,39 @@ class serviceProductSeeder extends Seeder
                 'price' => 1200.00,
                 'image' => 'https://m.media-amazon.com/images/I/61n6mgBSvEL._AC_UF894,1000_QL80_.jpg'
             ],
-            ];
+
+
+            // Emergency Services
+            [
+                'name' => 'Roadside Assistance',
+                'category' => 'Emergency Services',
+                'description' => 'Get immediate help for breakdowns, flat tires, and other roadside issues.',
+                'price' => 100.00,
+                'image' => 'https://m.media-amazon.com/images/I/81jjF4tCHlL._AC_UF1000,1000_QL80_.jpg'
+            ],
+            [
+                'name' => 'Towing Service',
+                'category' => 'Emergency Services',
+                'description' => 'Fast and reliable towing service to transport your vehicle to a nearby shop.',
+                'price' => 150.00,
+                'image' => 'https://m.media-amazon.com/images/I/71Hb+SnSopL._AC_UF1000,1000_QL80_.jpg'
+            ],
+            [
+                'name' => 'Jump Start Service',
+                'category' => 'Emergency Services',
+                'description' => 'Battery jump start service to get you back on the road quickly.',
+                'price' => 50.00,
+                'image' => 'https://m.media-amazon.com/images/I/61j2sdcbB9L._AC_UF1000,1000_QL80_.jpg'
+            ],
+            [
+                'name' => 'Lockout Assistance',
+                'category' => 'Emergency Services',
+                'description' => 'Get help to unlock your car if you’ve accidentally locked yourself out.',
+                'price' => 75.00,
+                'image' => 'https://m.media-amazon.com/images/I/71yNHEnfnUL._AC_UF1000,1000_QL80_.jpg'
+            ]
+
+        ];
 
         foreach ($serviceProducts as $product ) {
             $category = \App\Models\serviceCategory::where('name', $product['category'])->first();
