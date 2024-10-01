@@ -240,7 +240,7 @@
             <x-responsive-nav-link href="{{ route('facilities.index') }}" :active="request()->routeIs('facilities.*')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('facilities.*') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
                 {{ __('Facilities') }}
             </x-responsive-nav-link>
-            <!-- Suppliers link -->
+
 
             @endcan
         </div>
