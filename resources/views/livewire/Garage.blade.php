@@ -30,20 +30,24 @@ $removeProduct = function ($product_id) {
 <div x-data="{ open: @entangle('show_garage') }">
     @if($cart)
         {{-- Cart Icon --}}
-        <div class="fixed bottom-3 right-3 bg-white rounded-full shadow p-2">
+        <div class="fixed bottom-20 right-3 bg-white rounded-full shadow p-2"> <!-- Moved higher with bottom-20 -->
             <a href="#" class="group -m-2 flex items-center p-2" x-on:click="open = true">
+                <!-- Garage Icon SVG -->
                 <svg class="h-10 flex-shrink-0 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24"
                      stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
+                          d="M2.25 12l1.5 1.5v6h16.5v-6l1.5-1.5V8.25L12 3 2.25 8.25V12zM9 12h6v4.5H9V12z"></path> <!-- Garage icon path -->
                 </svg>
-                <span
-                    class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800 absolute top-0 right-0 bg-red-100 w-1/2 rounded-full text-center p-1 bg-opacity-75">
-                {{ $cart->serviceProducts->count() }} <!-- Update to use serviceProducts -->
-                </span>
-                <span class="sr-only">items in cart, view bag</span>
+
+                <!-- Item Count -->
+                <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800 absolute top-0 right-0 bg-red-100 w-1/2 rounded-full text-center p-1 bg-opacity-75">
+            {{ $cart->serviceProducts->count() }} <!-- Update to use serviceProducts -->
+        </span>
+
+                <span class="sr-only">items in garage, view garage</span> <!-- Updated label -->
             </a>
         </div>
+
 
         <div x-show="open" class="relative z-10"
              aria-labelledby="slide-over-title" role="dialog"
