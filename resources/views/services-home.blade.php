@@ -54,9 +54,9 @@
             <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 @foreach($products as $product)
                     <div class="group relative bg-white p-2 rounded-xl" x-show="activeCategory === {{ $product->serviceCategory->id }}">
-                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+{{--                        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">--}}
 {{--                            <img src="{{ $product->getFirstMediaUrl('featured') }}" alt="{{ $product->name }}" class="h-full w-full object-cover object-center lg:h-full lg:w-full">--}}
-                        </div>
+{{--                        </div>--}}
                         <div class="mt-4 flex justify-between">
                             <div>
                                 <h3 class="text-sm text-gray-700">

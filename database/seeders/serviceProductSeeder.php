@@ -15,28 +15,24 @@ class serviceProductSeeder extends Seeder
                 'category' => 'Maintenance Services',
                 'description' => 'Complete oil change service to keep your engine running smoothly.',
                 'price' => 70.00,
-                'image' => 'https://kosttirepa.com/wp-content/uploads/2013/02/m1-oil-filter.png'
             ],
             [
                 'name' => 'Fluid Checks & Top-Offs',
                 'category' => 'Maintenance Services',
                 'description' => 'Check and top off all vehicle fluids including coolant, brake, and power steering fluids.',
                 'price' => 25.00,
-                'image' => 'https://m.media-amazon.com/images/I/91sI6FBNgJL.jpg'
             ],
             [
-                'name' => 'Tire Rotation',
+                'name' => 'Tire Inspection & Rotation',
                 'category' => 'Maintenance Services',
-                'description' => 'Rotate your tires to promote even wear and extend tire life.',
+                'description' => 'Inspect and rotate tires to promote even wear and extend tire life.',
                 'price' => 40.00,
-                'image' => 'https://m.media-amazon.com/images/I/71sV6GxXZxL._AC_UF1000,1000_QL80_.jpg'
             ],
             [
-                'name' => 'Brake Pad Replacement',
+                'name' => 'Brake Inspection',
                 'category' => 'Maintenance Services',
-                'description' => 'Replace worn brake pads to ensure safe stopping power.',
-                'price' => 150.00,
-                'image' => 'https://m.media-amazon.com/images/I/91G6vhZZudL._AC_UF1000,1000_QL80_.jpg'
+                'description' => 'Inspect brake components to ensure optimal braking performance.',
+                'price' => 45.00,
             ],
 
             // Repair Services
@@ -45,28 +41,24 @@ class serviceProductSeeder extends Seeder
                 'category' => 'Repair Services',
                 'description' => 'Comprehensive engine repair for vehicles experiencing performance issues.',
                 'price' => 500.00,
-                'image' => 'https://m.media-amazon.com/images/I/71HxzIr3pwL._AC_UF894,1000_QL80_.jpg'
             ],
             [
                 'name' => 'Transmission Repair',
                 'category' => 'Repair Services',
                 'description' => 'Transmission repair to resolve shifting issues and ensure smooth performance.',
                 'price' => 1200.00,
-                'image' => 'https://m.media-amazon.com/images/I/81ZKzN6+LEL._AC_UF1000,1000_QL80_.jpg'
+            ],
+            [
+                'name' => 'Exhaust System Repair',
+                'category' => 'Repair Services',
+                'description' => 'Repair exhaust systems to fix leaks and improve efficiency.',
+                'price' => 300.00,
             ],
             [
                 'name' => 'Suspension Repair',
                 'category' => 'Repair Services',
                 'description' => 'Repair damaged suspension components to restore vehicle handling and ride comfort.',
                 'price' => 600.00,
-                'image' => 'https://m.media-amazon.com/images/I/71h8qfepHHL._AC_UF894,1000_QL80_.jpg'
-            ],
-            [
-                'name' => 'Radiator Replacement',
-                'category' => 'Repair Services',
-                'description' => 'Replace faulty radiators to prevent engine overheating.',
-                'price' => 450.00,
-                'image' => 'https://m.media-amazon.com/images/I/71nEjfxMm8L._AC_UF894,1000_QL80_.jpg'
             ],
 
             // Diagnostic Services
@@ -75,28 +67,24 @@ class serviceProductSeeder extends Seeder
                 'category' => 'Diagnostic Services',
                 'description' => 'Diagnostic service to identify the cause of your check engine light.',
                 'price' => 80.00,
-                'image' => 'https://m.media-amazon.com/images/I/61445vy+pNL._AC_UF1000,1000_QL80_.jpg'
             ],
             [
                 'name' => 'Electrical System Diagnostic',
                 'category' => 'Diagnostic Services',
                 'description' => 'Complete diagnostics of the electrical system to find issues with the battery or alternator.',
                 'price' => 90.00,
-                'image' => 'https://m.media-amazon.com/images/I/81O4gmmCrBL.jpg'
             ],
             [
-                'name' => 'Exhaust System Diagnostic',
+                'name' => 'Battery & Charging System Check',
                 'category' => 'Diagnostic Services',
-                'description' => 'Diagnose exhaust system problems, including leaks and sensor failures.',
-                'price' => 85.00,
-                'image' => 'https://m.media-amazon.com/images/I/81nqKr9bEmL._AC_UF1000,1000_QL80_.jpg'
+                'description' => 'Test the battery and charging system for optimal performance.',
+                'price' => 60.00,
             ],
             [
-                'name' => 'AC System Diagnostic',
+                'name' => 'Cooling System Diagnostic',
                 'category' => 'Diagnostic Services',
-                'description' => 'Identify issues with the air conditioning system and ensure optimal performance.',
-                'price' => 100.00,
-                'image' => 'https://m.media-amazon.com/images/I/51RRxr4f5HL._AC_UF1000,1000_QL80_.jpg'
+                'description' => 'Inspect and diagnose issues within the cooling system to prevent overheating.',
+                'price' => 70.00,
             ],
 
             // Body & Interior Services
@@ -105,28 +93,24 @@ class serviceProductSeeder extends Seeder
                 'category' => 'Body & Interior Services',
                 'description' => 'Professional dent repair service to restore your vehicle’s exterior to its original condition.',
                 'price' => 150.00,
-                'image' => 'https://m.media-amazon.com/images/I/71tnnk1n88L._AC_UF894,1000_QL80_.jpg'
+            ],
+            [
+                'name' => 'Interior Cleaning & Detailing',
+                'category' => 'Body & Interior Services',
+                'description' => 'Thorough cleaning and detailing of the interior to refresh your vehicle’s appearance.',
+                'price' => 200.00,
             ],
             [
                 'name' => 'Windshield Replacement',
                 'category' => 'Body & Interior Services',
                 'description' => 'Full windshield replacement to ensure a clear and safe view of the road.',
                 'price' => 300.00,
-                'image' => 'https://m.media-amazon.com/images/I/618HlQAa+EL._AC_UF1000,1000_QL80_.jpg'
             ],
             [
-                'name' => 'Interior Detailing',
+                'name' => 'Headlight Replacement',
                 'category' => 'Body & Interior Services',
-                'description' => 'Thorough cleaning and detailing of the interior to refresh your vehicle’s appearance.',
-                'price' => 200.00,
-                'image' => 'https://m.media-amazon.com/images/I/91sI6FBNgJL.jpg'
-            ],
-            [
-                'name' => 'Paintless Dent Repair',
-                'category' => 'Body & Interior Services',
-                'description' => 'Repair small dents without the need for repainting your vehicle.',
-                'price' => 180.00,
-                'image' => 'https://m.media-amazon.com/images/I/71tnnk1n88L._AC_UF894,1000_QL80_.jpg'
+                'description' => 'Replace damaged or burned-out headlights for improved visibility.',
+                'price' => 120.00,
             ],
 
             // Performance Services
@@ -135,84 +119,263 @@ class serviceProductSeeder extends Seeder
                 'category' => 'Performance Services',
                 'description' => 'Maximize your vehicle’s horsepower and torque with performance tuning services.',
                 'price' => 350.00,
-                'image' => 'https://m.media-amazon.com/images/I/81ZKzN6+LEL._AC_UF1000,1000_QL80_.jpg'
             ],
             [
                 'name' => 'Turbocharger Installation',
                 'category' => 'Performance Services',
                 'description' => 'Turbocharger installation to increase engine power and performance.',
                 'price' => 2000.00,
-                'image' => 'https://m.media-amazon.com/images/I/71HxzIr3pwL._AC_UF894,1000_QL80_.jpg'
-            ],
-            [
-                'name' => 'Exhaust System Upgrade',
-                'category' => 'Performance Services',
-                'description' => 'Upgrade your exhaust system for improved performance and sound.',
-                'price' => 700.00,
-                'image' => 'https://m.media-amazon.com/images/I/71H2+pjghfL._AC_UF894,1000_QL80_.jpg'
             ],
             [
                 'name' => 'Cold Air Intake Installation',
                 'category' => 'Performance Services',
                 'description' => 'Improve engine efficiency with a cold air intake installation.',
                 'price' => 400.00,
-                'image' => 'https://m.media-amazon.com/images/I/61RAEzRAAFL._AC_UF894,1000_QL80_.jpg'
+            ],
+            [
+                'name' => 'Suspension Upgrades',
+                'category' => 'Performance Services',
+                'description' => 'Upgrade suspension components for improved handling and ride quality.',
+                'price' => 800.00,
             ],
 
             // Custom Services
             [
                 'name' => 'Custom Paint Jobs',
                 'category' => 'Custom Services',
-                'description' => 'Custom paint jobs to give your car a unique look and shine.',
+                'description' => 'Get a unique look for your vehicle with a custom paint job.',
                 'price' => 1500.00,
-                'image' => 'https://m.media-amazon.com/images/I/91sI6FBNgJL.jpg'
             ],
             [
                 'name' => 'Window Tinting',
                 'category' => 'Custom Services',
                 'description' => 'Professional window tinting to enhance privacy and reduce glare.',
-                'price' => 200.00,
-                'image' => 'https://m.media-amazon.com/images/I/71WqxZbtERL.jpg'
+                'price' => 250.00,
             ],
             [
-                'name' => 'Custom Interior Upholstery',
+                'name' => 'Audio System Installation',
                 'category' => 'Custom Services',
-                'description' => 'Redesign your interior with custom upholstery for a luxurious feel.',
-                'price' => 1200.00,
-                'image' => 'https://m.media-amazon.com/images/I/61n6mgBSvEL._AC_UF894,1000_QL80_.jpg'
+                'description' => 'Install high-quality audio systems for superior sound quality.',
+                'price' => 600.00,
             ],
-
+            [
+                'name' => 'Body Kit Installation',
+                'category' => 'Custom Services',
+                'description' => 'Upgrade your vehicle’s appearance and aerodynamics with a body kit.',
+                'price' => 1200.00,
+            ],
 
             // Emergency Services
             [
-                'name' => 'Roadside Assistance',
-                'category' => 'Emergency Services',
-                'description' => 'Get immediate help for breakdowns, flat tires, and other roadside issues.',
-                'price' => 100.00,
-                'image' => 'https://m.media-amazon.com/images/I/81jjF4tCHlL._AC_UF1000,1000_QL80_.jpg'
-            ],
-            [
                 'name' => 'Towing Service',
                 'category' => 'Emergency Services',
-                'description' => 'Fast and reliable towing service to transport your vehicle to a nearby shop.',
+                'description' => 'Reliable towing service to get you off the road and to safety.',
                 'price' => 150.00,
-                'image' => 'https://m.media-amazon.com/images/I/71Hb+SnSopL._AC_UF1000,1000_QL80_.jpg'
             ],
             [
-                'name' => 'Jump Start Service',
+                'name' => 'Flat Tire Repair',
                 'category' => 'Emergency Services',
-                'description' => 'Battery jump start service to get you back on the road quickly.',
+                'description' => 'Quick and effective flat tire repair to get you back on the road.',
+                'price' => 30.00,
+            ],
+            [
+                'name' => 'Lockout Service',
+                'category' => 'Emergency Services',
+                'description' => 'Professional lockout service to help you regain access to your vehicle.',
+                'price' => 60.00,
+            ],
+            [
+                'name' => 'Jumpstart Service',
+                'category' => 'Emergency Services',
+                'description' => 'Jumpstart service to get your vehicle running again.',
                 'price' => 50.00,
-                'image' => 'https://m.media-amazon.com/images/I/61j2sdcbB9L._AC_UF1000,1000_QL80_.jpg'
             ],
             [
-                'name' => 'Lockout Assistance',
+                'name' => 'Fuel Delivery',
                 'category' => 'Emergency Services',
-                'description' => 'Get help to unlock your car if you’ve accidentally locked yourself out.',
-                'price' => 75.00,
-                'image' => 'https://m.media-amazon.com/images/I/71yNHEnfnUL._AC_UF1000,1000_QL80_.jpg'
-            ]
+                'description' => 'Fuel delivery service to get you back on the road when you run out of gas.',
+                'price' => 40.00,
+            ],
+            [
+                'name' => 'Air Filter Replacement',
+                'category' => 'Maintenance Services',
+                'description' => 'Replace the air filter to ensure optimal engine performance and fuel efficiency.',
+                'price' => 30.00,
+            ],
+            [
+                'name' => 'Wiper Blade Replacement',
+                'category' => 'Maintenance Services',
+                'description' => 'Replace worn-out wiper blades for clear visibility in inclement weather.',
+                'price' => 25.00,
+            ],
+            [
+                'name' => 'Fuel System Cleaning',
+                'category' => 'Maintenance Services',
+                'description' => 'Clean the fuel system to remove deposits and improve fuel efficiency.',
+                'price' => 150.00,
+            ],
+            [
+                'name' => 'Battery Replacement',
+                'category' => 'Maintenance Services',
+                'description' => 'Replace old or weak batteries to ensure reliable starting and electrical performance.',
+                'price' => 120.00,
+            ],
 
+            // Repair Services
+            [
+                'name' => 'Brake Pad Replacement',
+                'category' => 'Repair Services',
+                'description' => 'Replace worn brake pads to restore braking efficiency and safety.',
+                'price' => 150.00,
+            ],
+            [
+                'name' => 'Fuel Pump Replacement',
+                'category' => 'Repair Services',
+                'description' => 'Replace a failing fuel pump to restore proper fuel delivery to the engine.',
+                'price' => 400.00,
+            ],
+            [
+                'name' => 'AC System Repair',
+                'category' => 'Repair Services',
+                'description' => 'Repair the AC system to ensure optimal cooling performance during hot weather.',
+                'price' => 300.00,
+            ],
+            [
+                'name' => 'Timing Belt Replacement',
+                'category' => 'Repair Services',
+                'description' => 'Replace the timing belt to prevent potential engine damage and maintain performance.',
+                'price' => 700.00,
+            ],
+
+            // Diagnostic Services
+            [
+                'name' => 'Oxygen Sensor Diagnostic',
+                'category' => 'Diagnostic Services',
+                'description' => 'Diagnose and test the oxygen sensor to improve fuel efficiency and reduce emissions.',
+                'price' => 75.00,
+            ],
+            [
+                'name' => 'Brake System Diagnostic',
+                'category' => 'Diagnostic Services',
+                'description' => 'Inspect the brake system to identify issues affecting braking performance.',
+                'price' => 85.00,
+            ],
+            [
+                'name' => 'Tire Pressure Monitoring System Check',
+                'category' => 'Diagnostic Services',
+                'description' => 'Check and diagnose issues with the tire pressure monitoring system (TPMS).',
+                'price' => 50.00,
+            ],
+            [
+                'name' => 'Emissions Testing',
+                'category' => 'Diagnostic Services',
+                'description' => 'Conduct emissions testing to ensure compliance with environmental regulations.',
+                'price' => 40.00,
+            ],
+
+            // Body & Interior Services
+            [
+                'name' => 'Scratch Repair',
+                'category' => 'Body & Interior Services',
+                'description' => 'Remove scratches from the vehicles paint to restore its original appearance.',
+                 'price' => 100.00,
+    ],
+    [
+        'name' => 'Leather Seat Repair',
+        'category' => 'Body & Interior Services',
+        'description' => 'Repair and restore damaged leather seats for improved comfort and aesthetics.',
+        'price' => 200.00,
+    ],
+    [
+        'name' => 'Upholstery Repair',
+        'category' => 'Body & Interior Services',
+        'description' => 'Repair torn or damaged upholstery to restore the interior of your vehicle.',
+        'price' => 150.00,
+    ],
+    [
+        'name' => 'Paintless Dent Removal',
+        'category' => 'Body & Interior Services',
+        'description' => 'Remove dents without affecting the paint finish for a seamless restoration.',
+        'price' => 180.00,
+    ],
+
+    // Performance Services
+    [
+        'name' => 'Exhaust Upgrade',
+        'category' => 'Performance Services',
+        'description' => 'Upgrade the exhaust system to enhance performance and sound.',
+        'price' => 600.00,
+    ],
+    [
+        'name' => 'Performance Brake Upgrade',
+        'category' => 'Performance Services',
+        'description' => 'Install performance brake components for improved stopping power.',
+        'price' => 500.00,
+    ],
+    [
+        'name' => 'Nitrous Oxide Installation',
+        'category' => 'Performance Services',
+        'description' => 'Install a nitrous oxide system for increased engine power on demand.',
+        'price' => 1000.00,
+    ],
+    [
+        'name' => 'High-Performance Tire Installation',
+        'category' => 'Performance Services',
+        'description' => 'Install high-performance tires for improved grip and handling.',
+        'price' => 800.00,
+    ],
+
+    // Custom Services
+    [
+        'name' => 'Graphic Decals Installation',
+        'category' => 'Custom Services',
+        'description' => 'Install custom graphic decals to personalize the look of your vehicle.',
+        'price' => 300.00,
+    ],
+    [
+        'name' => 'Custom Rims Installation',
+        'category' => 'Custom Services',
+        'description' => 'Upgrade your vehicle with custom rims for enhanced style and performance.',
+        'price' => 1200.00,
+    ],
+    [
+        'name' => 'LED Lighting Installation',
+        'category' => 'Custom Services',
+        'description' => 'Install LED lights to improve visibility and add a modern touch.',
+        'price' => 250.00,
+    ],
+    [
+        'name' => 'Custom Exhaust Tips Installation',
+        'category' => 'Custom Services',
+        'description' => 'Install custom exhaust tips for a personalized exhaust look.',
+        'price' => 100.00,
+    ],
+
+    // Emergency Services
+    [
+        'name' => 'Roadside Assistance',
+        'category' => 'Emergency Services',
+        'description' => '24/7 roadside assistance for any vehicle emergency you encounter.',
+        'price' => 75.00,
+    ],
+    [
+        'name' => 'Emergency Fuel Delivery',
+        'category' => 'Emergency Services',
+        'description' => 'Deliver fuel directly to your location if you run out on the road.',
+        'price' => 100.00,
+    ],
+    [
+        'name' => 'Battery Testing and Replacement',
+        'category' => 'Emergency Services',
+        'description' => 'Test battery performance and replace it if necessary on-site.',
+        'price' => 150.00,
+    ],
+    [
+        'name' => 'Emergency Lock Replacement',
+        'category' => 'Emergency Services',
+        'description' => 'Replace locks if keys are lost or stolen for security purposes.',
+        'price' => 200.00,
+    ],
         ];
 
         foreach ($serviceProducts as $product ) {
