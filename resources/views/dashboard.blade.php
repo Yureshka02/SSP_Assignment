@@ -90,10 +90,10 @@
                         <h2 class="text-2xl font-semibold mb-6 text-gray-800">Dashboard Graphs</h2>
 
                         <!-- Orders Graph -->
-                        <div id="ordersChart" class="mb-8 h-64 bg-white shadow-lg rounded-lg p-4"></div>
+                        <canvas id="ordersChart" class="mb-8 h-64 bg-white shadow-lg rounded-lg p-4"></canvas>
 
                         <!-- Appointments Graph -->
-                        <div id="appointmentsChart" class="h-64 bg-white shadow-lg rounded-lg p-4"></div>
+                        <canvas id="appointmentsChart" class="h-64 bg-white shadow-lg rounded-lg p-4"></canvas>
                     </div>
                 </div>
             </div>
@@ -108,15 +108,25 @@
             }))
         })
 
+        // Group orders by month and count them
+        const ordersCountByMonth = {!! json_encode($orders->groupBy(fn($date) => \Carbon\Carbon::parse($date->created_at)->format('Y-m'))->map->count()) !!};
+        const ordersMonths = Object.keys(ordersCountByMonth);
+        const ordersCounts = Object.values(ordersCountByMonth);
+
+        // Group appointments by month and count them
+        const appointmentsCountByMonth = {!! json_encode($appointments->groupBy(fn($date) => \Carbon\Carbon::parse($date->created_at)->format('Y-m'))->map->count()) !!};
+        const appointmentsMonths = Object.keys(appointmentsCountByMonth);
+        const appointmentsCounts = Object.values(appointmentsCountByMonth);
+
         // Orders Chart
         const ordersChartCtx = document.getElementById('ordersChart').getContext('2d');
         new Chart(ordersChartCtx, {
             type: 'bar',
             data: {
-                labels: {!! json_encode($orders->pluck('first_name')) !!},
+                labels: ordersMonths,  // Months for x-axis
                 datasets: [{
-                    label: 'Orders',
-                    data: {!! json_encode($orders->pluck('id')) !!},
+                    label: 'Orders Count',
+                    data: ordersCounts,  // Number of orders for y-axis
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 1
@@ -124,7 +134,19 @@
             },
             options: {
                 scales: {
-                    y: { beginAtZero: true }
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Month',
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Orders',
+                        }
+                    }
                 }
             }
         });
@@ -134,10 +156,10 @@
         new Chart(appointmentsChartCtx, {
             type: 'line',
             data: {
-                labels: {!! json_encode($appointments->pluck('first_name')) !!},
+                labels: appointmentsMonths,  // Months for x-axis
                 datasets: [{
-                    label: 'Appointments',
-                    data: {!! json_encode($appointments->pluck('id')) !!},
+                    label: 'Appointments Count',
+                    data: appointmentsCounts,  // Number of appointments for y-axis
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 1
@@ -145,7 +167,19 @@
             },
             options: {
                 scales: {
-                    y: { beginAtZero: true }
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Month',
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Appointments',
+                        }
+                    }
                 }
             }
         });
