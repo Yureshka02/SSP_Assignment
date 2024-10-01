@@ -37,8 +37,6 @@ $addToGarage = function () {
 
 // if found, increment the quantity
     if($product) {
-        $product->pivot->quantity += 1;
-        $product->pivot->total += $this->product->price;
         $product->pivot->save();
     } else {
         // add the product to the cart
@@ -55,7 +53,7 @@ $addToGarage = function () {
     $cart->save();
 
     // emit event to open the cart
-    $this->dispatch('openCart');
+    $this->dispatch('openGarage');
 
 };
 

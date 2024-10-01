@@ -43,6 +43,7 @@
         </div>
 
         @livewire('cart')
+        @livewire('Garage')
 
         @stack('modals')
 
