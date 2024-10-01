@@ -17,6 +17,7 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+
     <!-- Styles -->
     @livewireStyles
 </head>
@@ -37,7 +38,7 @@
 
     <!-- Page Content -->
     <main>
-        @yield('content')
+        {{ $slot }}
     </main>
 </div>
 
