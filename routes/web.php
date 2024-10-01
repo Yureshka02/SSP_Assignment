@@ -5,6 +5,7 @@ use App\Http\Controllers\BookingsController;
 use App\Http\Controllers\CacheController;
 use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\FacilitiesController;
+use App\Http\Controllers\GarageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeeController;
 use App\Http\Controllers\LogController;
@@ -27,7 +28,26 @@ Route::middleware([
     Route::get('/products-home', [HomeeController::class, '__invoke'])->name('products-home');
     Route::get('/services-home', [serviceHomeController::class, '__invoke'])->name('services-home');
 
+    //garage routes
+    Route::get('garage-check-out', [
+        GarageController::class,
+        'garage_checkOut'
+    ])->name('garage-checkout');
 
+    Route::post('garage-check-out', [
+        GarageController::class,
+        'completeGarage'
+    ])->name('garage.complete');
+
+    Route::get('thank-you/{appointment}', [
+        GarageController::class,
+        'appointmentConfirmation'
+    ])->name('garage.confirm');
+
+
+
+
+// cart routes
 Route::get('check-out', [
     CartController::class,
     'checkOut'
