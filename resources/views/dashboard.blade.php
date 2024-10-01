@@ -68,6 +68,7 @@
                                         <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-600">Customer Name</th>
                                         <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-600">Email</th>
                                         <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-600">Status</th>
+                                        <th class="py-3 px-4 border-b text-left text-sm font-semibold text-gray-600">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -77,10 +78,35 @@
                                             <td class="py-3 px-4 border-b text-sm text-gray-700">{{ $appointment->first_name }}</td>
                                             <td class="py-3 px-4 border-b text-sm text-gray-700">{{ $appointment->email }}</td>
                                             <td class="py-3 px-4 border-b text-sm text-gray-700">{{ $appointment->status }}</td>
+                                            <td class="py-3 px-4 border-b text-sm text-gray-700">
+                                                <button type="button" class="bg-green-500 text-white px-2 py-1 rounded"
+                                                        x-on:click="confirmAppointment('{{ $appointment->id }}', '{{ $appointment->email }}')">
+                                                    Confirm
+                                                </button>
+                                                <button type="button" class="bg-red-500 text-white px-2 py-1 rounded ml-2"
+                                                        x-on:click="rejectAppointment('{{ $appointment->id }}', '{{ $appointment->email }}')">
+                                                    Reject
+                                                </button>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
+
+                                <!-- Modal for confirmation -->
+                                <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto" style="display: none;">
+                                    <div class="flex items-center justify-center min-h-screen">
+                                        <div class="bg-white p-4 rounded shadow-lg max-w-md w-full">
+                                            <h2 class="text-xl mb-4" x-text="modalMessage"></h2>
+                                            <div class="flex justify-end">
+                                                <button class="bg-gray-300 text-gray-700 px-4 py-2 rounded mr-2"
+                                                        x-on:click="closeModal()">Cancel</button>
+                                                <button class="bg-blue-500 text-white px-4 py-2 rounded"
+                                                        x-on:click="handleConfirm()">Confirm</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             @endif
                         </section>
                     </div>
@@ -105,10 +131,61 @@
         document.addEventListener('alpine:init', () => {
             Alpine.data('ordersAppointmentsPage', () => ({
                 activeTab: 'orders',  // Default active tab
-            }))
-        })
+                showModal: false,
+                modalMessage: '',
+                appointmentId: null,
+                appointmentEmail: null,
+                action: null,  // To track if it's confirm or reject
 
-        // Group orders by month and count them
+                // Function to open the confirm modal for confirmation
+                confirmAppointment(id, email) {
+                    this.showModal = true;
+                    this.modalMessage = 'Are you sure you want to confirm this appointment?';
+                    this.appointmentId = id;
+                    this.appointmentEmail = email;
+                    this.action = 'confirm';
+                },
+
+                // Function to open the reject modal for rejection
+                rejectAppointment(id, email) {
+                    this.showModal = true;
+                    this.modalMessage = 'Are you sure you want to reject this appointment?';
+                    this.appointmentId = id;
+                    this.appointmentEmail = email;
+                    this.action = 'reject';
+                },
+
+                // Function to close the modal
+                closeModal() {
+                    this.showModal = false;
+                    this.appointmentId = null;
+                    this.appointmentEmail = null;
+                    this.action = null;
+                },
+
+                // Function to handle confirmation and send email
+                handleConfirm() {
+                    // Close the modal
+                    this.showModal = false;
+
+                    // Make an API call to send the confirmation/rejection email
+                    axios.post('/appointments/notify', {
+                        appointment_id: this.appointmentId,
+                        email: this.appointmentEmail,
+                        action: this.action
+                    }).then(response => {
+                        // Optionally, show success notification
+                        alert('Email sent successfully.');
+                        location.reload(); // Refresh the page to see changes
+                    }).catch(error => {
+                        console.error('Error sending email:', error);
+                        alert('Error sending email. Please try again.');
+                    });
+                }
+            }));
+        });
+
+        // Chart.js logic for orders and appointments
         const ordersCountByMonth = {!! json_encode($orders->groupBy(fn($date) => \Carbon\Carbon::parse($date->created_at)->format('Y-m'))->map->count()) !!};
         const ordersMonths = Object.keys(ordersCountByMonth);
         const ordersCounts = Object.values(ordersCountByMonth);

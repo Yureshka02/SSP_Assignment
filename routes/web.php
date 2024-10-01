@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\BookingsController;
 use App\Http\Controllers\CacheController;
 use App\Http\Controllers\CustomersController;
@@ -108,3 +109,6 @@ Route::resource('suppliers', SuppliersController::class)
 //customers route
 Route::resource('customers', CustomersController::class)
     ->middleware(['auth', 'verified']);
+
+//appointments route
+Route::post('/appointments/notify', [AppointmentController::class, 'notify']);
