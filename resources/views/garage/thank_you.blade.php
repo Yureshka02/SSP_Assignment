@@ -26,8 +26,7 @@
                 @foreach($order->garage->serviceProducts as $product)
                     <div class="flex space-x-6 border-b border-gray-200 py-10">
 
-                             alt="{{ $product->name }}"
-                             class="h-20 w-20 flex-none rounded-lg bg-gray-100 object-cover object-center sm:h-40 sm:w-40">
+
                         <div class="flex flex-auto flex-col">
                             <div>
                                 <h4 class="font-medium text-gray-900">
