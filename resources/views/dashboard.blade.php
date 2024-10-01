@@ -168,6 +168,7 @@
             options: {
                 scales: {
                     x: {
+
                         title: {
                             display: true,
                             text: 'Month',
