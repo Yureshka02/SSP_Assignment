@@ -93,9 +93,12 @@ class GarageController extends Controller
     public function appointmentConfirmation(Request $request, Appointment $appointment)
     {
         return view('garage.thank_you', [
-
+            'order' => $appointment
         ]);
     }
+
+
+
 
 
 
