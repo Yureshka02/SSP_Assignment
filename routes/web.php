@@ -1,9 +1,9 @@
 <?php
 
-
 use App\Http\Controllers\BookingsController;
 use App\Http\Controllers\CacheController;
 use App\Http\Controllers\CustomersController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FacilitiesController;
 use App\Http\Controllers\GarageController;
 use App\Http\Controllers\HomeController;
@@ -44,64 +44,45 @@ Route::middleware([
         'appointmentConfirmation'
     ])->name('garage.confirm');
 
+    // cart routes
+    Route::get('check-out', [
+        CartController::class,
+        'checkOut'
+    ])->name('checkout');
 
+    Route::post('check-out', [
+        CartController::class,
+        'completeOrder'
+    ])->name('checkout.complete');
 
-
-// cart routes
-Route::get('check-out', [
-    CartController::class,
-    'checkOut'
-])->name('checkout');
-
-Route::post('check-out', [
-    CartController::class,
-    'completeOrder'
-])->name('checkout.complete');
-
-Route::get('thank-you/{order}', [
-    CartController::class,
-    'orderConfirmation'
-])->name('checkout.confirm');
-
-
+    Route::get('thank-you/{order}', [
+        CartController::class,
+        'orderConfirmation'
+    ])->name('checkout.confirm');
 });
 
-Route::get('/cache-test',[
+Route::get('/cache-test', [
     CacheController::class,
     'index'
 ]);
 
-Route::get('/logs',[
+Route::get('/logs', [
     LogController::class,
     'index'
 ]);
 
-Route::get('/session',[
+Route::get('/session', [
     SessionController::class,
     'index'
 ]);
 
-Route::get('/notification',[
+Route::get('/notification', [
     NotificationController::class,
     'index'
 ]);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-Route::get('/',HomeController::class)
+Route::get('/', HomeController::class)
     ->name('home');
-
 
 Route::middleware([
     'role:Admin,Customer',
@@ -109,53 +90,21 @@ Route::middleware([
     dd(auth()->user()->role == App\Enums\Role::Customer);
 });
 
-
-
-
-
-
-
-Route::get('/',HomeController::class)
-    ->name('home');
-
-
-Route::get('/reservations', function () {
-    return view('dashboard');
-})  ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
+//dashboard route
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 //bookings route
-Route::resource('Bookings',BookingsController::class)
+Route::resource('Bookings', BookingsController::class)
     ->middleware(['auth', 'verified']);
 
 //facilities route
-Route::resource('facilities',FacilitiesController::class)
+Route::resource('facilities', FacilitiesController::class)
     ->middleware(['auth', 'verified']);
+
 //suppliers route
-Route::resource('suppliers',SuppliersController::class)
+Route::resource('suppliers', SuppliersController::class)
     ->middleware(['auth', 'verified']);
+
 //customers route
-Route::resource('customers',CustomersController::class)
+Route::resource('customers', CustomersController::class)
     ->middleware(['auth', 'verified']);
-//dashboard route
-Route::resource('dashboard',HomeController::class)
-    ->middleware(['auth', 'verified']);
-
-
-
-
-
-
-
-
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
