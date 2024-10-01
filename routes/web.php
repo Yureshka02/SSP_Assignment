@@ -11,9 +11,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeeController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\serviceHomeController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SuppliersController;
+use App\Models\Review;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 
@@ -67,6 +69,9 @@ Route::middleware([
 
 
 
+
+
+
 Route::get('/cache-test', [
     CacheController::class,
     'index'
@@ -89,12 +94,22 @@ Route::get('/notification', [
 
 Route::get('/', HomeController::class)
     ->name('home');
+Route::middleware('auth')->group(function () {
+    Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+});
+
+Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 
 Route::middleware([
     'role:Admin,Customer',
 ])->get('/dev', function () {
     dd(auth()->user()->role == App\Enums\Role::Customer);
 });
+
+Route::get('/', function () {
+    $reviews = Review::with('user')->latest()->get(); // Fetch reviews
+    return view('home', compact('reviews')); // Pass reviews to the view
+})->name('home');
 
 //dashboard route
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

@@ -5,6 +5,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #111111;
 
         }
 
@@ -187,6 +188,103 @@
             }
         }
 
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif; /* Default font */
+        }
+
+        /* Full-width container for the page */
+        .container {
+            max-width: 1200px; /* Set a maximum width for larger screens */
+            margin: 20px auto; /* Center the container */
+            padding: 0 20px; /* Padding for responsiveness */
+            box-sizing: border-box; /* Include padding in total width calculation */
+            width: 100%; /* Ensure full width on smaller screens */
+            padding-top: 20px; /* Add padding on top to reduce space */
+            padding-bottom: 20px; /* Add padding at the bottom for consistency */
+            background-color: #f8f9fa; /* Light background color to contrast with content */
+            border-radius: 10px; /* Optional: Add rounded corners */
+            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+
+        .container h1 {
+            font-size: 2.5em; /* Large font size for h1 */
+            margin-bottom: 20px; /* Spacing below the heading */
+            text-align: center; /* Center the heading */
+        }
+
+
+        /* Feedback and Reviews Section */
+        .reviews {
+            background-color: #0f2d2e; /* Teal background */
+            color: white; /* White text color */
+            padding: 40px 20px; /* Padding for spacing */
+            border-radius: 10px; /* Rounded corners */
+            width: calc(90% + 40px); /* Full width, compensating for padding */
+            position: relative; /* Position relative for internal elements */
+            left: -20px; /* Shift left to fill the screen */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            margin: 20px 0 0 60px; /* Margin for spacing from other sections */
+        }
+
+        .reviews h3 {
+            font-size: 2em; /* Increased font size for h3 */
+            margin-bottom: 20px; /* Spacing below the heading */
+            text-align: center; /* Center the heading */
+        }
+
+        .reviews textarea {
+            width: 100%; /* Full width */
+            height: 100px; /* Set height */
+            border-radius: 5px; /* Rounded corners */
+            border: none; /* Remove border */
+            padding: 10px; /* Padding inside textarea */
+            margin-bottom: 20px; /* Spacing below the textarea */
+            resize: none; /* Disable resizing */
+            font-size: 1em; /* Font size */
+            color: #333; /* Text color for visibility */
+            background-color: #ffffff; /* White background for textarea */
+        }
+
+        .reviews button {
+            background-color: #007BFF; /* Button background color */
+            color: white; /* Button text color */
+            border: none; /* Remove border */
+            padding: 10px 20px; /* Padding */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer on hover */
+            font-size: 1em; /* Font size */
+            transition: background-color 0.3s; /* Transition effect */
+        }
+
+        .reviews button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+
+        .review-list {
+            margin-top: 20px; /* Spacing above the review list */
+            padding: 10px; /* Padding for review list */
+            background: rgba(255, 255, 255, 0.1); /* Slightly transparent white background */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .review {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Light border between reviews */
+            padding: 10px 0; /* Padding for each review */
+        }
+
+        .review:last-child {
+            border-bottom: none; /* Remove border for the last review */
+        }
+
+        .review strong {
+            color: white; /* Strong text color */
+        }
+
+        .review small {
+            color: #bbb; /* Lighter color for timestamp */
+        }
 
 
 
@@ -223,6 +321,8 @@
             color: white;
             text-decoration: none;
         }
+
+
 
     </style>
     <header>
@@ -267,6 +367,35 @@
         </div>
         <p>Our expert, licensed mechanics come to your office or location to perform any of the preferred services for your vehicle. Our service team is available 7 days a week, from 9 AM to 9 PM.</p>
     </section>
+    <div class="container">
+        <h1>How was your Experience with Us!</h1>
+
+
+        <!-- Feedback and Reviews Section -->
+        <section class="reviews">
+            <h3>User Reviews</h3>
+
+            @if(session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
+
+            <form action="{{ route('reviews.store') }}" method="POST">
+                @csrf
+                <textarea name="review" rows="4" placeholder="Leave your feedback" required></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
+
+            <div class="review-list">
+                @foreach($reviews as $review)
+                    <div class="review">
+                        <strong>{{ $review->user->email }}</strong>
+                        <p>{{ $review->review }}</p>
+                        <small>{{ $review->created_at->diffForHumans() }}</small>
+                    </div>
+                @endforeach
+            </div>
+        </section>
+    </div>
 
 
 
