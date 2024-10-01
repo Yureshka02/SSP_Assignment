@@ -60,7 +60,12 @@ Route::middleware([
         CartController::class,
         'orderConfirmation'
     ])->name('checkout.confirm');
+
+
 });
+
+
+
 
 Route::get('/cache-test', [
     CacheController::class,
