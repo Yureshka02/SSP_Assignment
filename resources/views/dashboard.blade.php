@@ -122,18 +122,23 @@
 
                         <!-- Orders Graph -->
                         <h2 class="text-small font-semibold mb-6 text-teal-300 ml-4">Orders -></h2>
-                        <canvas id="ordersChart" class="mb-8 h-64 bg-gray-700 shadow-lg rounded-lg p-4 "></canvas>
+                        <canvas id="ordersChart" class="mb-8 h-64 bg-gray-700 shadow-lg rounded-lg p-4"></canvas>
 
                         <!-- Appointments Graph -->
-                        <h2 class="text-small font-semibold mb-6 text-teal-300 ml-4">Appointemnts -></h2>
+                        <h2 class="text-small font-semibold mb-6 text-teal-300 ml-4">Appointments -></h2>
                         <canvas id="appointmentsChart" class="mb-8 h-64 bg-gray-700 shadow-lg rounded-lg p-4"></canvas>
 
                         <!-- Customers Graph -->
                         <h2 class="text-small font-semibold mb-6 text-teal-300 ml-4">Customers -></h2>
                         <canvas id="customersChart" class="mb-8 h-64 bg-gray-700 shadow-lg rounded-lg p-4"></canvas>
+
+                        <!-- Pie Chart -->
+                        <div class="flex justify-center items-center w-full h-80 mb-8">  <!-- Larger outer div for centering -->
+                            <canvas id="pieChart" class="w-72 h-72"></canvas>  <!-- Larger canvas size -->
+                        </div>
                     </div>
+
                 </div>
-            </div>
         </div>
     </div>
 
@@ -224,6 +229,13 @@
         const customersCountByMonth = {!! json_encode($customers->groupBy(fn($date) => \Carbon\Carbon::parse($date->created_at)->format('Y-m'))->map->count()) !!};
         const customersMonths = Object.keys(customersCountByMonth);
         const customersCounts = Object.values(customersCountByMonth);
+
+        // Get current month in 'Y-m' format
+        const currentMonth = new Date().toISOString().slice(0, 7);
+
+        // Get the count for the current month
+        const currentOrdersCount = ordersCountByMonth[currentMonth] || 0;
+        const currentAppointmentsCount = appointmentsCountByMonth[currentMonth] || 0;
 
 
 
@@ -386,5 +398,80 @@
                 }
             }
         });
+
+        // Pie chart data
+        const pieChartCtx = document.getElementById('pieChart').getContext('2d');
+        new Chart(pieChartCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Orders', 'Appointments'],
+                datasets: [{
+                    label: 'Current Month Data',
+                    data: [currentOrdersCount, currentAppointmentsCount],
+                    backgroundColor: [
+                        'rgba(45, 212, 191, 0.6)',
+                        'rgba(20, 184, 166, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(45, 212, 191, 1)',
+                        'rgba(20, 184, 166, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#94a3b8'
+                        }
+                    }
+                }
+            }
+        });
     </script>
+    </div>
+
+    <footer class="bg-black text-white py-2">  <!-- Reduced vertical padding -->
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">  <!-- Centered vertically -->
+            <div class="logo mb-2 md:mb-0 flex-shrink-0">  <!-- Added flex-shrink to prevent logo resizing -->
+                <img src="{{ asset('/assets/logo.png') }}" alt="Footer Logo" class="max-w-xs">
+            </div>
+            <div class="flex flex-col md:flex-row md:space-x-10 items-center">  <!-- Center items vertically -->
+                <div class="company mb-2 md:mb-0 text-center md:text-left">  <!-- Center text in smaller screens -->
+                    <h4 class="font-semibold mb-1 text-sm">Company</h4>  <!-- Reduced font size -->
+                    <ul>
+                        <li><a href="#" class="hover:underline text-xs">Home</a></li>  <!-- Reduced font size -->
+                        <li><a href="#" class="hover:underline text-xs">About</a></li>
+                        <li><a href="#" class="hover:underline text-xs">Services</a></li>
+                    </ul>
+                </div>
+                <div class="legal mb-2 md:mb-0 text-center md:text-left">  <!-- Center text in smaller screens -->
+                    <h4 class="font-semibold mb-1 text-sm">Legal</h4>  <!-- Reduced font size -->
+                    <ul>
+                        <li><a href="#" class="hover:underline text-xs">Terms & Conditions</a></li>
+                        <li><a href="#" class="hover:underline text-xs">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="social mb-2 md:mb-0 text-center md:text-left">  <!-- Center text in smaller screens -->
+                    <h4 class="font-semibold mb-1 text-sm">Social</h4>  <!-- Reduced font size -->
+                    <ul>
+                        <li><a href="#" class="hover:underline text-xs">Instagram</a></li>
+                        <li><a href="#" class="hover:underline text-xs">Twitter</a></li>
+                    </ul>
+                </div>
+                <div class="contact text-center md:text-left">  <!-- Center text in smaller screens -->
+                    <h4 class="font-semibold mb-1 text-sm">Contact</h4>  <!-- Reduced font size -->
+                    <p class="text-xs">Email: <a href="mailto:info@thetorettos.com" class="hover:underline">info@thetorettos.com</a></p>
+                    <p class="text-xs">Phone: (123) 456-7890</p>
+                    <p class="text-xs">Location: 1234 Detailing Ave, City, State</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
 </x-app-layout>

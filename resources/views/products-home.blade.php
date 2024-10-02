@@ -85,4 +85,41 @@
             }))
         })
     </script>
+    <footer class="bg-black text-white py-2">  <!-- Reduced vertical padding -->
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">  <!-- Centered vertically -->
+            <div class="logo mb-2 md:mb-0 flex-shrink-0">  <!-- Added flex-shrink to prevent logo resizing -->
+                <img src="{{ asset('/assets/logo.png') }}" alt="Footer Logo" class="max-w-xs">
+            </div>
+            <div class="flex flex-col md:flex-row md:space-x-10 items-center">  <!-- Center items vertically -->
+                <div class="company mb-2 md:mb-0 text-center md:text-left">  <!-- Center text in smaller screens -->
+                    <h4 class="font-semibold mb-1 text-sm">Company</h4>  <!-- Reduced font size -->
+                    <ul>
+                        <li><a href="#" class="hover:underline text-xs">Home</a></li>  <!-- Reduced font size -->
+                        <li><a href="#" class="hover:underline text-xs">About</a></li>
+                        <li><a href="#" class="hover:underline text-xs">Services</a></li>
+                    </ul>
+                </div>
+                <div class="legal mb-2 md:mb-0 text-center md:text-left">  <!-- Center text in smaller screens -->
+                    <h4 class="font-semibold mb-1 text-sm">Legal</h4>  <!-- Reduced font size -->
+                    <ul>
+                        <li><a href="#" class="hover:underline text-xs">Terms & Conditions</a></li>
+                        <li><a href="#" class="hover:underline text-xs">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="social mb-2 md:mb-0 text-center md:text-left">  <!-- Center text in smaller screens -->
+                    <h4 class="font-semibold mb-1 text-sm">Social</h4>  <!-- Reduced font size -->
+                    <ul>
+                        <li><a href="#" class="hover:underline text-xs">Instagram</a></li>
+                        <li><a href="#" class="hover:underline text-xs">Twitter</a></li>
+                    </ul>
+                </div>
+                <div class="contact text-center md:text-left">  <!-- Center text in smaller screens -->
+                    <h4 class="font-semibold mb-1 text-sm">Contact</h4>  <!-- Reduced font size -->
+                    <p class="text-xs">Email: <a href="mailto:info@thetorettos.com" class="hover:underline">info@thetorettos.com</a></p>
+                    <p class="text-xs">Phone: (123) 456-7890</p>
+                    <p class="text-xs">Location: 1234 Detailing Ave, City, State</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </x-app-layout>
