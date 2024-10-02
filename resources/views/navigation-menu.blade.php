@@ -16,6 +16,16 @@
                         {{ __('Home') }}
                     </x-nav-link>
 
+                    <!-- products-home page link -->
+                    <x-nav-link href="{{ route('products-home') }}" :active="request()->routeIs('products-home')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('products-home') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
+                        {{ __('Products') }}
+                    </x-nav-link>
+
+{{--                    services-home page link--}}
+                    <x-nav-link href="{{ route('services-home') }}" :active="request()->routeIs('services-home')" class="text-xl text-gray-400 hover:text-teal-600" :class="request()->routeIs('services-home') ? 'text-teal-600 border-b-2 border-teal-600' : 'border-transparent'">
+                        {{ __('Services') }}
+                    </x-nav-link>
+
                     @auth
                         @can('seeAdminFeatures')
 

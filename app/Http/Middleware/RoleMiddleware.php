@@ -11,26 +11,31 @@ class RoleMiddleware
         Request $request,
         Closure $next,
         string ...$role
-    )
-    {
+    ){
 
-        //loop through the role list and check if there is a match
-        foreach ($role as $r) {
-
-
-
-            if (auth()->user()->role->name == $r) {
-                return $next($request);
-            }
+    foreach ($role as $r) {
+        if (auth()->check() && auth()->user()->role->name == $r) {
+            // Role matched, proceed to the next request
+            return $next($request);
         }
+}
 
 
+if (auth()->check()) {
+    $user = auth()->user();
 
+    // Redirect Admin to the dashboard
+    if ($user->role->name == 'Admin') {
+        return redirect('/dashboard');
+    }
 
+    // Redirect Customer to the homepage
+    if ($user->role->name == 'Customer') {
+        return redirect('/');
+    }
+}
 
-        abort(403, "PIXXUDA");
-        }
-
-
-
+// If the user is not authorized or does not have a matching role
+abort(403, "Unauthorized access");
+}
 }
