@@ -133,3 +133,6 @@ Route::resource('customers', CustomersController::class)
 Route::post('/appointments/notify', [AppointmentController::class, 'notify']);
 Route::patch('/appointments/{id}/status', [AppointmentController::class, 'updateStatus']);
 
+Route::delete('/appointments/{id}', [AppointmentController::class, 'delete']);
+
+

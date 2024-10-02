@@ -87,6 +87,11 @@
                                                         x-on:click="rejectAppointment('{{ $appointment->id }}', '{{ $appointment->email }}')">
                                                     Reject
                                                 </button>
+                                               <button type="button" class="bg-red-600 hover:bg-red-700 text-white px-2 py-1 rounded ml-2"
+                                    x-on:click="deleteAppointment('{{ $appointment->id }}')">
+                                Delete
+                            </button>
+
                                             </td>
                                         </tr>
                                     @endforeach
@@ -159,6 +164,13 @@
                     this.action = 'reject';
                 },
 
+                deleteAppointment(id) {
+                    this.showModal = true;
+                    this.appointmentId = id;
+                    this.modalMessage = 'Are you sure you want to delete this appointment?';
+                    this.action = 'delete'; // Set action for deletion
+                },
+
                 closeModal() {
                     this.showModal = false;
                     this.appointmentId = null;
@@ -169,21 +181,35 @@
                 handleConfirm() {
                     this.showModal = false;
 
-                    axios.post('/appointments/notify', {
-                        appointment_id: this.appointmentId,
-                        email: this.appointmentEmail,
-                        action: this.action
-                    }).then(response => {
-                        alert('Email sent successfully.');
-                        location.reload();
-                    }).catch(error => {
-                        console.error('Error sending email:', error);
-                        alert('Error sending email. Please try again.');
-                    });
+                    // Handle confirm or reject actions
+                    if (this.action === 'confirm' || this.action === 'reject') {
+                        axios.post('/appointments/notify', {
+                            appointment_id: this.appointmentId,
+                            email: this.appointmentEmail,
+                            action: this.action
+                        }).then(response => {
+                            alert('Email sent successfully.');
+                            location.reload(); // Reload page to reflect changes
+                        }).catch(error => {
+                            console.error('Error sending email:', error);
+                            alert('Error sending email. Please try again.');
+                        });
+                    }
+                    // Handle delete action
+                    else if (this.action === 'delete') {
+                        axios.delete(`/appointments/${this.appointmentId}`)
+                            .then(response => {
+                                alert('Appointment deleted successfully.');
+                                location.reload(); // Reload page to reflect changes
+                            })
+                            .catch(error => {
+                                console.error('Error deleting appointment:', error);
+                                alert('Error deleting appointment. Please try again.');
+                            });
+                    }
                 }
             }));
         });
-
         //orders chart data
         const ordersCountByMonth = {!! json_encode($orders->groupBy(fn($date) => \Carbon\Carbon::parse($date->created_at)->format('Y-m'))->map->count()) !!};
         const ordersMonths = Object.keys(ordersCountByMonth);

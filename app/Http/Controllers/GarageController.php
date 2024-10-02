@@ -74,7 +74,7 @@ class GarageController extends Controller
                     'name_on_card' => $request->name_on_card,
                     'expiration_date' => $request->expiration_date,
                     'cvc' => $request->cvc,
-                    'status' => 'complete'
+                    'status' => 'pending'
                 ]);
 
                 // cart status set to paid

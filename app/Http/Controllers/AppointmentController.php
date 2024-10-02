@@ -9,7 +9,21 @@ use App\Notifications\AppointmentStatusNotification;
 
 class AppointmentController extends Controller
 {
-public function notify(Request $request)
+
+    //function to delete appointments if the status is complete
+    public function delete($id) // Change to receive ID from the URL
+    {
+        $appointment = Appointment::find($id); // Find by ID directly
+
+        if ($appointment) {
+            $appointment->delete();
+            return response()->json(['message' => 'Appointment deleted successfully'], 200);
+        }
+
+        return response()->json(['error' => 'Appointment not found'], 404);
+    }
+
+    public function notify(Request $request)
 {
 $appointment = Appointment::find($request->appointment_id);
 
@@ -20,6 +34,9 @@ $message = 'Your appointment has been confirmed.';
 } elseif ($request->action === 'reject') {
 $message = 'Your appointment has been rejected.';
 }
+
+    $appointment->status ='complete';
+    $appointment->save();
 
 // Send email notification
 Notification::route('mail', $request->email)
