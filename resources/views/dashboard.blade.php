@@ -225,6 +225,8 @@
         const customersMonths = Object.keys(customersCountByMonth);
         const customersCounts = Object.values(customersCountByMonth);
 
+
+
         const ordersChartCtx = document.getElementById('ordersChart').getContext('2d');
         new Chart(ordersChartCtx, {
             type: 'bar',
