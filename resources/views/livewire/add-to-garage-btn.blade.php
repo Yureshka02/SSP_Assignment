@@ -60,7 +60,7 @@ $addToGarage = function () {
 ?>
 
 <div class="mt-4">
-    <button wire:click="addToGarage" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    <button wire:click="addToGarage" class="border-2 border-teal-700 text-teal-400 bg-gray-800 hover:bg-gray-700 font-bold py-2 px-4 rounded">
         Add to Garage
     </button>
 </div>
