@@ -28,7 +28,7 @@
                     <div class="mt-4">
                         <!-- Orders Section -->
                         <section x-show="activeTab === 'orders'">
-                            <h2 class="text-2xl font-semibold mb-6 text-teal-300">Orders</h2>
+                            <h2 class="text-2xl font-semibold mb-6 text-teal-300 text-center">Orders</h2>
                             @if($orders->isEmpty())
                                 <p class="text-gray-400">No orders found.</p>
                             @else
@@ -57,7 +57,7 @@
 
                         <!-- Appointments Section -->
                         <section x-show="activeTab === 'appointments'">
-                            <h2 class="text-2xl font-semibold mb-6 text-teal-300">Appointments</h2>
+                            <h2 class="text-2xl font-semibold mb-6 text-teal-300 text-center">Appointments</h2>
                             @if($appointments->isEmpty())
                                 <p class="text-gray-400">No appointments found.</p>
                             @else
@@ -113,16 +113,19 @@
 
                     <!-- Graphs Section -->
                     <div class="mt-8">
-                        <h2 class="text-2xl font-semibold mb-6 text-teal-300">Dashboard Graphs</h2>
+                        <h2 class="text-2xl font-semibold mb-6 text-teal-300 text-center">Analytics</h2>
 
                         <!-- Orders Graph -->
+                        <h2 class="text-small font-semibold mb-6 text-teal-300 ml-4">Orders -></h2>
                         <canvas id="ordersChart" class="mb-8 h-64 bg-gray-700 shadow-lg rounded-lg p-4"></canvas>
 
                         <!-- Appointments Graph -->
-                        <canvas id="appointmentsChart" class="h-64 bg-gray-700 shadow-lg rounded-lg p-4"></canvas>
+                        <h2 class="text-small font-semibold mb-6 text-teal-300 ml-4">Appointemnts -></h2>
+                        <canvas id="appointmentsChart" class="mb-8 h-64 bg-gray-700 shadow-lg rounded-lg p-4"></canvas>
 
                         <!-- Customers Graph -->
-                        <canvas id="customersChart" class="h-64 bg-gray-700 shadow-lg rounded-lg p-4"></canvas>
+                        <h2 class="text-small font-semibold mb-6 text-teal-300 ml-4">Customers -></h2>
+                        <canvas id="customersChart" class="mb-8 h-64 bg-gray-700 shadow-lg rounded-lg p-4"></canvas>
                     </div>
                 </div>
             </div>
