@@ -86,8 +86,9 @@ class CartController extends Controller
         return redirect()->route('checkout.confirm', $order->id);
     }
 
-    public function orderConfirmation(Request $request, Order $order)
+    public function orderConfirmation( Order $order)
     {
+
         return view('thank_you', [
             'order' => $order
         ]);
