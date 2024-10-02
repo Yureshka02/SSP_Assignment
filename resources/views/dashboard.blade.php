@@ -3,12 +3,12 @@
     <div class="py-12 bg-gray-900">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <!-- Content Box -->
-            <div class="bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-gray-900 overflow-hidden shadow-xl sm:rounded-lg m-10 ">
                 <!-- Tabs for Orders and Appointments -->
-                <div x-data="ordersAppointmentsPage">
+                <div x-data="ordersAppointmentsPage ">
                     <!-- Tabs Navigation -->
                     <div class="hidden sm:block">
-                        <div class="border-b border-gray-700">
+                        <div class="border-b border-gray-700 ml-4">
                             <nav class="-mb-px flex space-x-8" aria-label="Tabs">
                                 <button type="button" x-on:click="activeTab = 'orders'"
                                         :class="{'border-teal-500 text-teal-400': activeTab === 'orders', 'border-transparent text-gray-400 hover:text-gray-300 hover:border-gray-300': activeTab !== 'orders'}"
@@ -25,10 +25,10 @@
                     </div>
 
                     <!-- Tab Content -->
-                    <div class="mt-4">
+                    <div class="m-4">
                         <!-- Orders Section -->
                         <section x-show="activeTab === 'orders'">
-                            <h2 class="text-2xl font-semibold mb-6 text-teal-300 text-center">Orders</h2>
+                            <h2 class="text-2xl font-semibold mb-6 text-teal-300 text-center ">Orders</h2>
                             @if($orders->isEmpty())
                                 <p class="text-gray-400">No orders found.</p>
                             @else
@@ -117,7 +117,7 @@
                     </div>
 
                     <!-- Graphs Section -->
-                    <div class="mt-8">
+                    <div class="mt-8 m-5">
                         <h2 class="text-2xl font-semibold mb-6 text-teal-300 text-center">Analytics</h2>
 
                         <!-- Orders Graph -->
@@ -224,6 +224,7 @@
         const customersCountByMonth = {!! json_encode($customers->groupBy(fn($date) => \Carbon\Carbon::parse($date->created_at)->format('Y-m'))->map->count()) !!};
         const customersMonths = Object.keys(customersCountByMonth);
         const customersCounts = Object.values(customersCountByMonth);
+
 
 
 
