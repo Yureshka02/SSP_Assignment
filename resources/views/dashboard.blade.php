@@ -120,6 +120,9 @@
 
                         <!-- Appointments Graph -->
                         <canvas id="appointmentsChart" class="h-64 bg-gray-700 shadow-lg rounded-lg p-4"></canvas>
+
+                        <!-- Customers Graph -->
+                        <canvas id="customersChart" class="h-64 bg-gray-700 shadow-lg rounded-lg p-4"></canvas>
                     </div>
                 </div>
             </div>
@@ -178,13 +181,20 @@
             }));
         });
 
+        //orders chart data
         const ordersCountByMonth = {!! json_encode($orders->groupBy(fn($date) => \Carbon\Carbon::parse($date->created_at)->format('Y-m'))->map->count()) !!};
         const ordersMonths = Object.keys(ordersCountByMonth);
         const ordersCounts = Object.values(ordersCountByMonth);
 
+        //appointments chart data
         const appointmentsCountByMonth = {!! json_encode($appointments->groupBy(fn($date) => \Carbon\Carbon::parse($date->created_at)->format('Y-m'))->map->count()) !!};
         const appointmentsMonths = Object.keys(appointmentsCountByMonth);
         const appointmentsCounts = Object.values(appointmentsCountByMonth);
+
+        //customers chart data
+        const customersCountByMonth = {!! json_encode($customers->groupBy(fn($date) => \Carbon\Carbon::parse($date->created_at)->format('Y-m'))->map->count()) !!};
+        const customersMonths = Object.keys(customersCountByMonth);
+        const customersCounts = Object.values(customersCountByMonth);
 
         const ordersChartCtx = document.getElementById('ordersChart').getContext('2d');
         new Chart(ordersChartCtx, {
@@ -272,6 +282,59 @@
                         title: {
                             display: true,
                             text: 'Number of Appointments',
+                            color: '#94a3b8'
+                        },
+                        ticks: {
+                            color: '#94a3b8'
+                        },
+                        grid: {
+                            color: 'rgba(148, 163, 184, 0.1)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#94a3b8'
+                        }
+                    }
+                }
+            }
+        });
+
+        const customersChartCtx = document.getElementById('customersChart').getContext('2d');
+        new Chart(customersChartCtx, {
+            type: 'line',
+            data: {
+                labels: customersMonths,
+                datasets: [{
+                    label: 'Customers Count',
+                    data: customersCounts,
+                    backgroundColor: 'rgba(20, 184, 166, 0.2)',
+                    borderColor: 'rgba(20, 184, 166, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Month',
+                            color: '#94a3b8'
+                        },
+                        ticks: {
+                            color: '#94a3b8'
+                        },
+                        grid: {
+                            color: 'rgba(148, 163, 184, 0.1)'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Customers',
                             color: '#94a3b8'
                         },
                         ticks: {
