@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Role;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\BookingsController;
 use App\Http\Controllers\CacheController;
@@ -69,9 +70,6 @@ Route::middleware([
 
 
 
-
-
-
 Route::get('/cache-test', [
     CacheController::class,
     'index'
@@ -92,19 +90,18 @@ Route::get('/notification', [
     'index'
 ]);
 
+//home route
 Route::get('/', HomeController::class)
     ->name('home');
+
+
+//reviews routes
 Route::middleware('auth')->group(function () {
     Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 });
 
 Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
 
-Route::middleware([
-    'role:Admin,Customer',
-])->get('/dev', function () {
-    dd(auth()->user()->role == App\Enums\Role::Customer);
-});
 
 Route::get('/', function () {
     $reviews = Review::with('user')->latest()->get(); // Fetch reviews
@@ -112,7 +109,9 @@ Route::get('/', function () {
 })->name('home');
 
 //dashboard route
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard')
+    ->middleware(['auth', 'verified','role:Admin' ]);
 
 //bookings route
 Route::resource('Bookings', BookingsController::class)
