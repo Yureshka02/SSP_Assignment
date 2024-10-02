@@ -87,7 +87,7 @@
                                                         x-on:click="rejectAppointment('{{ $appointment->id }}', '{{ $appointment->email }}')">
                                                     Reject
                                                 </button>
-                                               <button type="button" class="bg-red-400 hover:bg-red-500 text-white px-2 py-1 rounded ml-2"
+                                               <button type="button" class="bg-red-500 hover:bg-red-500 text-white px-2 py-1 rounded ml-2"
                                     x-on:click="deleteAppointment('{{ $appointment->id }}')">
                                 Delete
                             </button>
