@@ -117,7 +117,7 @@
 
                         <!-- Orders Graph -->
                         <h2 class="text-small font-semibold mb-6 text-teal-300 ml-4">Orders -></h2>
-                        <canvas id="ordersChart" class="mb-8 h-64 bg-gray-700 shadow-lg rounded-lg p-4"></canvas>
+                        <canvas id="ordersChart" class="mb-8 h-64 bg-gray-700 shadow-lg rounded-lg p-4 "></canvas>
 
                         <!-- Appointments Graph -->
                         <h2 class="text-small font-semibold mb-6 text-teal-300 ml-4">Appointemnts -></h2>
