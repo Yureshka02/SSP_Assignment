@@ -1,7 +1,7 @@
 <x-app-layout>
 
 
-    <div class="bg-gray-900">
+    <div class="bg-gray-900 min-h-screen">
         <div class="mx-auto max-w-2xl px-4 pb-24 pt-8 sm:px-6 lg:max-w-7xl lg:px-8">
             <h2 class="sr-only">Checkout</h2>
 
