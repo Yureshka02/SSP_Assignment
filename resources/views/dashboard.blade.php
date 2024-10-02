@@ -83,11 +83,11 @@
                                                         x-on:click="confirmAppointment('{{ $appointment->id }}', '{{ $appointment->email }}')">
                                                     Confirm
                                                 </button>
-                                                <button type="button" class="bg-red-600 hover:bg-red-700 text-white px-2 py-1 rounded ml-2"
+                                                <button type="button" class="bg-yellow-600 hover:bg-yellow-400 text-white px-2 py-1 rounded ml-2"
                                                         x-on:click="rejectAppointment('{{ $appointment->id }}', '{{ $appointment->email }}')">
                                                     Reject
                                                 </button>
-                                               <button type="button" class="bg-red-600 hover:bg-red-700 text-white px-2 py-1 rounded ml-2"
+                                               <button type="button" class="bg-red-400 hover:bg-red-500 text-white px-2 py-1 rounded ml-2"
                                     x-on:click="deleteAppointment('{{ $appointment->id }}')">
                                 Delete
                             </button>
